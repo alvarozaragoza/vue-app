@@ -12,5 +12,6 @@ import Navbar from './components/Navbar.vue'
 </template>
 
 <style>
-@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+@import "highlight.js/styles/atom-one-dark.css";
 </style>
