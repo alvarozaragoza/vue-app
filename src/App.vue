@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import Navbar from './components/Navbar.vue'
-import FormInput from './components/FormInput.vue';
 import { useModal } from './composables/modal'
 
 const modal = useModal()
@@ -12,7 +11,6 @@ const modalStyle = computed( () => {
     display: modal.show.value ? 'block' : 'none'
   }
 })
-const username = ref('')
 </script>
 
 <template>
@@ -27,10 +25,8 @@ const username = ref('')
 
   <div class="section">
     <div class="container">
-      <FormInput name="Username" v-model="username"/>
       <Navbar />
       <RouterView />
-      {{ username }}
     </div>
   </div>
 </template>
@@ -38,4 +34,22 @@ const username = ref('')
 <style>
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 @import "highlight.js/styles/atom-one-dark.css";
+
+ul {
+  list-style: revert !important;
+  list-style-position: inside !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: revert !important;
+  margin: 10px 0 !important;
+}
+
+pre {
+  margin: 10px 0 !important;
+}
+
+p {
+  margin: 10px 0 !important;
+}
 </style>
