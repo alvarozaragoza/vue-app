@@ -20,10 +20,19 @@ app.get("/posts", (req, res) => {
 })
 
 app.post<{}, {}, Post>("/posts", (req, res) => {
-    console.log(req.ip)
     const post = {...req.body, id: (Math.random() * 100000).toFixed()}
     allPosts.push(post)
     res.json(post)
+})
+
+app.put<{}, {}, Post>("/posts", (req, res) => {
+    const index = allPosts.findIndex( x => x.id === req.body.id )
+    if(index === -1) {
+        throw new Error(`Post with id ${req.body.id} was not found`);
+    }
+    const existingPost = allPosts[index]
+    allPosts[index] = {...existingPost, ...req.body}
+    res.json(allPosts[index])
 })
 
 const SECRET = 'my-secret'
