@@ -4,7 +4,6 @@ import { Pinia, createPinia, setActivePinia } from "pinia";
 import UserForm from './UserForm.vue'
 import { Router, createMemoryHistory, createRouter } from 'vue-router';
 import { routes } from '../router';
-import { useUsers } from '../stores/users';
 
 vi.stubGlobal('fetch', vi.fn(() => {
     
